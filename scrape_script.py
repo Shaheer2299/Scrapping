@@ -49,7 +49,7 @@ def scrape_question(categ, page_link):
 
         df = pd.DataFrame(lt)
         if os.path.isfile('data.csv'):
-            df.to_csv("data.csv", index=False, mode='a', encoding="UTF-8")
+            df.to_csv("data.csv", index=False, mode='a', header=False, encoding="UTF-8")
         else:
             df.to_csv("data.csv", index=False, encoding="UTF-8")
 
