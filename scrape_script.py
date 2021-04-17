@@ -42,9 +42,9 @@ def scrape_question(categ, page_link):
             soup1 = BeautifulSoup(q_page, "lxml")
             q_box = soup1.find("div", class_="question-box")
             attr["Category"] = categ
+            attr["Title"]= q_box.find("h1").text.strip()
             attr["Date"] = q_box.find("div", class_="postedDate").text.strip()
-            attr["Question"] = q_box.find(
-                "div", class_="discription").text.strip()
+            attr["Question"] = q_box.find("div", class_="discription").text.strip()
             lt.append(attr)
 
         df = pd.DataFrame(lt)
